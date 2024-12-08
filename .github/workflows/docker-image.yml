@@ -21,8 +21,8 @@ jobs:
         
     - name: Build Images
       run: |
-        docker build -t brozekm/dce_backend:latest -f ./backend/Dockerfile ./backend
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/dce_backend:latest -f ./backend/Dockerfile ./backend
 
     - name: Push Images
       run: |
-        docker push brozekm/dce_backend:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/dce_backend:latest
