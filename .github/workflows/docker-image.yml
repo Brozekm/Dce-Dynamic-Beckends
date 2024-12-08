@@ -1,0 +1,17 @@
+name: CI/CD Build And Deploy Image
+
+on:
+  push:
+    branches: 
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build and push backend image
+      run: |
+        docker build -t be-image .
+        docker push be-image
