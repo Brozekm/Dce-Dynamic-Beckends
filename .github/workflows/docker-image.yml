@@ -21,5 +21,5 @@ jobs:
         
     - name: Build and push backend image
       run: |
-        docker build -t my-backend-image -f ./backend/Dockerfile ./backend
-        docker push be-image
+        docker build -t dce_backend -f ./backend/Dockerfile ./backend
+        docker push brozekm/dce_backend:latest
