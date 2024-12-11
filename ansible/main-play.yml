@@ -1,0 +1,14 @@
+---
+  - name: Setup Backends
+    hosts: backend_ips
+    become: true
+    roles:
+      - common
+      - backend
+
+  - name: Setup Load balancer
+    hosts: loadbalancer_ips
+    become: true
+    roles:
+      - common
+      - lb

@@ -1,0 +1,15 @@
+---
+- name: Pull backend Docker image
+  community.docker.docker_image:
+    name: ghcr.io/brozekm/dce_backend
+    tag: latest
+    source: pull
+
+- name: Run backend Docker container
+  community.docker.docker_container:
+    name: backend
+    image: ghcr.io/brozekm/dce_backend:latest
+    state: started
+    restart_policy: always
+    published_ports:
+      - "8080:80"

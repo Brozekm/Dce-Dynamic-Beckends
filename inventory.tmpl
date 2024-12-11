@@ -1,0 +1,9 @@
+[backend_ips]
+%{ for ip in be_ips ~}
+${ip}
+%{ endfor ~}
+
+[loadbalancer_ips]
+%{ for ip in lb_ips ~}
+${ip}
+%{ endfor ~}

@@ -1,0 +1,17 @@
+
+upstream be_servers {
+    {% for ip in groups['backend_ips'] %}
+    server {{ ip }}:8080;
+    {% endfor %}
+}
+
+server {
+    listen 80;
+
+    location / {
+        proxy_pass http://be_servers;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
