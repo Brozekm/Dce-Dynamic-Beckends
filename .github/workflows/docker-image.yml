@@ -22,8 +22,8 @@ jobs:
         
     - name: Build Images
       run: |
-        docker build -t ghcr.io/${{ github.repository_owner }}/dce_backend:latest -f ./backend/Dockerfile ./backend
+        docker build -t ghcr.io/brozekm/dce_backend:latest -f ./backend/Dockerfile ./backend
 
     - name: Push Images
       run: |
-        docker push ghcr.io/${{ github.repository_owner }}/dce_backend:latest
+        docker push ghcr.io/brozekm/dce_backend:latest
